@@ -1,0 +1,193 @@
+@import "variables";
+
+html {
+  overflow-x: 0;
+  overflow-y: 0;
+}
+
+body {
+  background: white;
+  margin: 0px auto;
+  font-family: "montserrat";
+
+  .container {
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 100px;
+  }
+}
+
+    .accordion-component {
+        margin: 0px;
+
+        .container {
+            width: 100%;
+
+            padding: 10px 0px;
+            margin: 0 auto;
+        }
+
+        .cmp-accordion {
+            &__icon:after {
+                float: right;
+                width: 50px;
+                height: 35px;
+                font-size: 50px;
+                content: '+';
+                transform: translateY(-10px);
+            }
+
+            button[aria-expanded="true"] > span.cmp-accordion__icon:after {
+                float: right;
+
+                width: 50px;
+                height: 50px;
+
+                padding-left: 3px;
+
+                font-size: 50px;
+                content: '-';
+            }
+
+            &__title {
+                font-size: 1.3em;
+            }
+
+            &__header {
+                padding: 0px;
+                margin: 0;
+                border-bottom: 1px solid;
+            }
+
+            &__panel--no-indent {
+                padding: 30px 0px 0px;
+
+                border-bottom: none;
+
+                .text-component .rich-text-content p {
+                    font-size: 1.1em;
+                    line-height: 28px;
+                }
+            }
+
+            &__panel--indent {
+                padding: 30px 20px 0px;
+
+                border-bottom: none;
+
+                .text-component .rich-text-content p {
+                    font-size: 1.1em;
+                    line-height: 28px;
+                }
+            }
+
+            &__button {
+                position: relative;
+
+                width: 100%;
+
+                padding: 1em 0;
+
+                border: none;
+
+                text-align: left;
+
+                font-size: 1.15rem;
+                font-weight: 400;
+
+                color: black;
+                background: none;
+                display: block;
+                outline: none;
+
+                &:hover, &:focus {
+                    color: green;
+                    cursor: pointer;
+
+                    &::after {
+                        border: 1px solid green;
+
+                        color: green;
+                        cursor: pointer;
+                    }
+                }
+
+                .icon {
+                    position: absolute;
+                    top: 18px;
+                    right: 0;
+
+
+                    width: 22px;
+                    height: 22px;
+
+
+                    border: 1px solid;
+                    border-radius: 22px;
+
+                    display: inline-block;
+
+                    &::before {
+                        position: absolute;
+                        top: 9px;
+                        left: 5px;
+
+                        width: 10px;
+                        height: 2px;
+
+                        background: grey;
+                        content: '';
+                        display: block;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        top: 5px;
+                        left: 9px;
+
+                        width: 2px;
+                        height: 10px;
+
+                        background: grey;
+
+                        content: '';
+                        display: block;
+                    }
+                }
+            }
+
+
+
+        }
+
+
+    .active .cmp-accordion__icon:after {
+    float: right;
+    width: 45px;
+    height: 35px;
+    font-size: 50px;
+    content: '-';
+    transform: translatey(-15px);
+}
+
+.cmp-accordion__panel {
+      visibility: hidden;
+      transition: max-height 2s ease-out;
+      height: 20px;
+      max-height: 20px;
+    opacity: 0;
+}
+
+.cmp-accordion__panel.active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s ease, max-height 2s ease-in;
+    height: 100px;
+    max-height: 200px;
+    padding: 20px 0px;
+}
+
+.cmp-accordion__panel[data-indent-status="true"] {
+  padding: 20px;
+}
+    }
